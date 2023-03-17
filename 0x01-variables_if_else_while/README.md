@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 README FILE
+=======
+README ME:
+>>>>>>> 0c34c6c786b129f9f5b9137f2617962ea978790a
