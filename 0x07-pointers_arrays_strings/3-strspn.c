@@ -16,7 +16,7 @@ unsigned int _strspn(char *xr, char *acc)
 		{
 			if (*xr == acc[i])
 			{
-				n++;
+				num++;
 				break;
 			}
 			else if (acc[i + 1] == '\0')
