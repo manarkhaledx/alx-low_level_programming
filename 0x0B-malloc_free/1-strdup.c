@@ -3,27 +3,28 @@
 #include "main.h"
 /**
  * _strdup - duplicate to new memory space location
- * @strx: char
+ * @str: char
  * Return: 0
  */
-char *_strdupx(char *strx)
+char *_strdup(char *str)
 {
-	char *aaax;
-	int ix, rx = 0;
+	char *aaa;
+	int i, r = 0;
 
-	if (strx == NULL)
+	if (str == NULL)
 		return (NULL);
-	ix = 0;
-	while (str[ix] != '\0')
-		ix++;
+	i = 0;
+	while (str[i] != '\0')
+		i++;
 
-	aaax = malloc(sizeof(char) * (ix + 1));
+	aaa = malloc(sizeof(char) * (i + 1));
 
-	if (aaax == NULL)
+	if (aaa == NULL)
 		return (NULL);
 
-	for (rx = 0; str[rx]; rx++)
-		aaax[rx] = strx[rx];
+	for (r = 0; str[r]; r++)
+		aaa[r] = str[r];
 
-	return (aaax);
+	return (aaa);
 }
+

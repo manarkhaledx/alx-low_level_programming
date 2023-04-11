@@ -2,41 +2,42 @@
 #include <stdlib.h>
 /**
  * str_concat - get ends of input and add together for size
- * @s1x: input one to concat
- * @s2x: input two to concat
- * Return: concat of s1x and s2x
+ * @s1: input one to concat
+ * @s2: input two to concat
+ * Return: concat of s1 and s2
  */
-char *str_concatx(char *s1x, char *s2x)
+char *str_concat(char *s1, char *s2)
 {
-	char *conctx;
-	int ix, cix;
+	char *conct;
+	int i, ci;
 
-	if (s1x == NULL)
-		s1x = "";
-	if (s2x == NULL)
-		s2x = "";
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-	ix = cix = 0;
-	while (s1x[ix] != '\0')
-		ix++;
-	while (s2x[cix] != '\0')
-		cix++;
-	conctx = malloc(sizeof(char) * (ix + cix + 1));
+	i = ci = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[ci] != '\0')
+		ci++;
+	conct = malloc(sizeof(char) * (i + ci + 1));
 
-	if (conctx == NULL)
+	if (conct == NULL)
 		return (NULL);
-	ix = cix = 0;
-	while (s1x[ix] != '\0')
+	i = ci = 0;
+	while (s1[i] != '\0')
 	{
-		conctx[ix] = s1x[ix];
-		ix++;
+		conct[i] = s1[i];
+		i++;
 	}
 
-	while (s2x[cix] != '\0')
+	while (s2[ci] != '\0')
 	{
-		conct[ix] = s2x[cix];
-		ix++, cix++;
+		conct[i] = s2[ci];
+		i++, ci++;
 	}
-	conctx[ix] = '\0';
-	return (conctx);
+	conct[i] = '\0';
+	return (conct);
 }
+

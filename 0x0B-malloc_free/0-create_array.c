@@ -2,22 +2,23 @@
 #include <stdlib.h>
 /**
  * create_array - create array of size size and assign char c
- * @sizex: size of array
- * @cx: char to assign
+ * @size: size of array
+ * @c: char to assign
  * Description: create array of size size and assign char c
  * Return: pointer to array, NULL if fail
  *
  */
-char *create_arrayx(unsigned int sizex, char cx)
+char *create_array(unsigned int size, char c)
 {
-	char *strx;
-	unsigned int ix;
+	char *str;
+	unsigned int i;
 
-	strx = malloc(sizeof(char) * sizex);
-	if (sizex == 0 || strx == NULL)
+	str = malloc(sizeof(char) * size);
+	if (size == 0 || str == NULL)
 		return (NULL);
 
-	for (ix = 0; ix < sizex; ix++)
-		str[ix] = cx;
-	return (strx);
+	for (i = 0; i < size; i++)
+		str[i] = c;
+	return (str);
 }
+

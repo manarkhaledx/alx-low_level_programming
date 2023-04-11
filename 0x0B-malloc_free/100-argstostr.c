@@ -2,39 +2,40 @@
 #include <stdlib.h>
 /**
  * argstostr - main entry
- * @acx: int input
- * @avx: double pointer array
+ * @ac: int input
+ * @av: double pointer array
  * Return: 0
  */
-char *argstostrx(int acx, char **avx)
+char *argstostr(int ac, char **av)
 {
-	int ix, nx, rx = 0, lx = 0;
-	char *strx;
+	int i, n, r = 0, l = 0;
+	char *str;
 
-	if (acx == 0 || avx == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (ix = 0; ix < acx; ix++)
+	for (i = 0; i < ac; i++)
 	{
-		for (nx = 0; avx[ix][nx]; nx++)
-			lx++;
+		for (n = 0; av[i][n]; n++)
+			l++;
 	}
-	l += acx;
+	l += ac;
 
-	strx = malloc(sizeof(char) * lx + 1);
-	if (strx == NULL)
+	str = malloc(sizeof(char) * l + 1);
+	if (str == NULL)
 		return (NULL);
-	for (ix = 0; ix < acx; ix++)
+	for (i = 0; i < ac; i++)
 	{
-	for (nx = 0; avx[ix][nx]; nx++)
+	for (n = 0; av[i][n]; n++)
 	{
-		strx[rx] = avx[ix][nx];
-		rx++;
+		str[r] = av[i][n];
+		r++;
 	}
-	if (strx[rx] == '\0')
+	if (str[r] == '\0')
 	{
-		strx[rx++] = '\n';
+		str[r++] = '\n';
 	}
 	}
-	return (strx);
+	return (str);
 }
+

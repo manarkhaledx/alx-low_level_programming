@@ -3,75 +3,76 @@
 
 /**
  * count_word - helper function to count the number of words in a string
- * @sx: string to evaluate
+ * @s: string to evaluate
  *
  * Return: number of words
  */
-int count_wordx(char *sx)
+int count_word(char *s)
 {
-	int flagx, cx, wx;
+	int flag, c, w;
 
-	flagx = 0;
-	wx = 0;
+	flag = 0;
+	w = 0;
 
-	for (cx = 0; sx[cx] != '\0'; cx++)
+	for (c = 0; s[c] != '\0'; c++)
 	{
-		if (sx[cx] == ' ')
-			flagx = 0;
-		else if (flagx == 0)
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
 		{
-			flagx = 1;
-			wx++;
+			flag = 1;
+			w++;
 		}
 	}
 
-	return (wx);
+	return (w);
 }
 /**
  * **strtow - splits a string into words
- * @strx: string to split
+ * @str: string to split
  *
  * Return: pointer to an array of strings (Success)
  * or NULL (Error)
  */
-char **strtowx(char *strx)
+char **strtow(char *str)
 {
-	char **matrixx, *tmpx;
-	int ix, kx = 0, lenx = 0, wordsx, cx = 0, startx, endx;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-	while (*(strx + lenx))
-		lenx++;
-	words = count_wordx(strx);
-	if (wordsx == 0)
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
 		return (NULL);
 
-	matrixx = (char **) malloc(sizeof(char *) * (wordsx + 1));
-	if (matrixx == NULL)
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
 		return (NULL);
 
-	for (ix = 0; ix <= lenx; ix++)
+	for (i = 0; i <= len; i++)
 	{
-		if (strx[ix] == ' ' || strx[ix] == '\0')
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			if (cx)
+			if (c)
 			{
-				endx = ix;
-				tmpx = (char *) malloc(sizeof(char) * (cx+ 1));
-				if (tmpx == NULL)
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
 					return (NULL);
-				while (startx < endx)
-					*tmpx++ = strx[startx++];
-				*tmpx = '\0';
-				matrixx[kx] = tmpx - cx;
-				kx++;
-				cx = 0;
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
 			}
 		}
-		else if (cx++ == 0)
-			startx = i;
+		else if (c++ == 0)
+			start = i;
 	}
 
-	matrixx[kx] = NULL;
+	matrix[k] = NULL;
 
-	return (matrixx);
+	return (matrix);
 }
+
